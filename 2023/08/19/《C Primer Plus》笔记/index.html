@@ -28,7 +28,7 @@
 <meta property="og:description" content="学习C的一些笔记。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-19T07:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-19T07:49:58.821Z">
+<meta property="article:modified_time" content="2023-08-25T15:34:09.984Z">
 <meta property="article:author" content="叶愚">
 <meta name="twitter:card" content="summary">
 
@@ -119,12 +119,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">3</span></a>
 
   </li>
   </ul>
@@ -173,10 +173,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-08-19 15:00:00 / 修改时间：15:49:58" itemprop="dateCreated datePublished" datetime="2023-08-19T15:00:00+08:00">2023-08-19</time>
+              <time title="创建时间：2023-08-19 15:00:00" itemprop="dateCreated datePublished" datetime="2023-08-19T15:00:00+08:00">2023-08-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-25 23:34:09" itemprop="dateModified" datetime="2023-08-25T23:34:09+08:00">2023-08-25</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -255,72 +261,14 @@
 <p><em>for 语句特别适用于需要初始化和更新的循环。<br>使用逗号运算符可以在for 循环中初始化和更新多个变量。</em></p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********示例**********/</span></span><br><span class="line"><span class="keyword">for</span> (表达式<span class="number">1</span>; 表达式<span class="number">2</span>; 表达式<span class="number">3</span>) <span class="comment">//后面不要加 ; (分号)</span></span><br><span class="line">&#123;</span><br><span class="line">	语句;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 循环方式：1-&gt;2-&gt;语句-&gt;3-&gt;2-&gt;语句......</span></span><br><span class="line"><span class="comment">// 表达式2为循环条件</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="do-while"><a href="#do-while" class="headerlink" title="do while"></a>do while</h4><p>① do　while 语句创建一个循环，<strong>循环条件</strong>的结果为<strong>假或0</strong>，重复执行<strong>循环体</strong>中的内容。<br>② do　while 语句是一种出口条件循环，即在执行完循环体后，再根据<strong>循环条件</strong>决定是否再次执行循环。因此，该循环至少必须执行一次。<strong>循环内容</strong>部分可是一条简单语句或复合语句。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/********** 一般形式 **********/</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">&#123;</span><br><span class="line">	语句; <span class="comment">// 循环内容</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (表达式); <span class="comment">//此为循环条件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/********** 嵌套 **********/</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">&#123;</span><br><span class="line">	语句; <span class="comment">// 循环内容</span></span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">	&#123;</span><br><span class="line">		语句; <span class="comment">// 循环内容</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(表达式<span class="number">1</span>); <span class="comment">//此为循环条件</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span>(表达式<span class="number">2</span>); <span class="comment">//此为循环条件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 循环方式：语句-&gt;表达式-&gt;语句-&gt;表达式。。。。。。</span></span><br><span class="line"><span class="comment">// 在 (循环条件) 为假或0 之前，重复执行 (语句) 部分。</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><p>① while 语句创建了一个循环，重复执行。当<strong>循环条件</strong>为<strong>真</strong>(或非零)，跳出循环。<br>① while 语句是一种入口条件循环，也就是说，在执行多次循环之前已决定是否执行循环。因此，循环有可能不被执行。循环体可以是简单语句，也可以是复合语句。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(表达式) <span class="comment">//循环条件</span></span><br><span class="line">&#123;</span><br><span class="line">	语句; <span class="comment">//循环内容</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 循环方式：表达式-&gt;语句-&gt;表达式-&gt;语句......</span></span><br></pre></td></tr></table></figure>
 <h4 id="注"><a href="#注" class="headerlink" title="注"></a>注</h4><p>• <em>注意循环的测试条件要能使循环结束</em>；<br>• <em>确保循环测试中的值在首次使用之前已初始化</em>；<br>• <em>确保循环在每次迭代都更新测试的值</em>；<br>• <em>for和while是入口条件循环；do while是出口条件循环</em>。</p>
 <hr>
-<h1 id="转义序列"><a href="#转义序列" class="headerlink" title="转义序列"></a>转义序列</h1><table>
-<thead>
-<tr>
-<th>转义序列</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>\a</td>
-<td>警报（ANSI C）</td>
-</tr>
-<tr>
-<td>\b</td>
-<td>退格</td>
-</tr>
-<tr>
-<td>\f</td>
-<td>换页</td>
-</tr>
-<tr>
-<td>\n</td>
-<td>换行</td>
-</tr>
-<tr>
-<td>\r</td>
-<td>回车</td>
-</tr>
-<tr>
-<td>\t</td>
-<td>水平制表符</td>
-</tr>
-<tr>
-<td>\v</td>
-<td>垂直制表符</td>
-</tr>
-<tr>
-<td>\</td>
-<td>反斜杠（ \ ）</td>
-</tr>
-<tr>
-<td>\‘</td>
-<td>单引号</td>
-</tr>
-<tr>
-<td>\“</td>
-<td>双引号</td>
-</tr>
-<tr>
-<td>\?</td>
-<td>问号</td>
-</tr>
-<tr>
-<td>\0oo</td>
-<td>八进制值（oo 必须是有效的八进制数，即每个o 可表示0 ～7 中的一个数）</td>
-</tr>
-<tr>
-<td>\xhh</td>
-<td>十六进制值（hh 必须是有效的十六进制数，即每个h 可表示0 ～f 中的一个数）</td>
-</tr>
-</tbody></table>
 <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>函数（function）是完成特定任务的独立程序代码单元。语法规则定义了函数的结构和使用方式。</p>
 <h2 id="形式参数和实际参数"><a href="#形式参数和实际参数" class="headerlink" title="形式参数和实际参数"></a>形式参数和实际参数</h2><p><strong>形式参数</strong><br><code>void show_n_char(char ch, int num)</code>该行告知编译器show_n_char() 使用两个参数ch 和num ，ch 是char 类型，num 是int 类型。这两个变量被称为形式参数 （formal argument ，但是最近的标准推荐使用formal parameter ），简称形参。和定义在函数中变量一样，形式参数也是局部变量，属该函数私有。这意味着在其他函数中使用同名变量不会引起名称冲突。每次调用函数，就会给这些变量赋值。<br><strong>实际参数</strong><br><code>show_n_char(SPACE, 12);</code>实际参数是空格字符和12 。这两个值被赋给show_n_char() 中相应的形式参数：变量ch 和num 。<br>简而言之，形式参数是被调函数 （called function ）中的变量，实际参数是主调函数 （calling function ）赋给被调函数的具体值。如上例所示，实际参数可以是常量、变量，或甚至是更复杂的表达式。无论实际参数是何种形式都要被求值，然后该值被拷贝给被调函数相应的形式参数。<br><strong>实际参数和形式参数</strong><br>实际参数是出现在函数调用圆括号中的表达式。<br>形式参数是函数定义的函数头中声明的变量。<br>调用函数时，创建了声明为形式参数的变量并初始化为实际参数的求值结果。</p>
 <h2 id="define"><a href="#define" class="headerlink" title="define"></a>define</h2><p>1、define是宏定义，程序在预处理阶段将用define定义的内容进行了<strong>替换</strong>。因此在程序运行时，常量表中并没有用define定义的常量，系统不为它分配内存。而const定义的常量，在程序运行时，存在常量表中，且系统为它分配内存。<br>2、define定义的常量，预处理时只是直接进行了替换，因此在编译时不能进行数据类型检验。而const定义的常量，在编译时进行严格的类型检验，可以避免出错。<br>3、define定义表达式时要注意“边缘效应”。<br>4、定义宏使用 #define；取消宏定义使用 #undef</p>
@@ -634,6 +582,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	a = a++; <span class="comment">// 后缀：使用a的值之后，递增a</span></span><br><span class="line"><span class="comment">/* 示例 */</span></span><br><span class="line">	q = <span class="number">2</span>*a++; <span class="comment">//首先，2乘以a，并将结果赋给q;然后a递增1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/********** 分隔符 **********/</span></span><br><span class="line"></span><br><span class="line">	b = ++b; <span class="comment">// 前缀：使用b的值之前，递增b</span></span><br><span class="line"><span class="comment">/* 示例 */</span></span><br><span class="line">	q = <span class="number">2</span>*++a; <span class="comment">//首先，a递增1；然后2乘以a，并将结果赋给q</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h2><p><strong>条件运算符是唯一有3个操作数的运算符，所以有时又称为三元运算符、三目运算符。</strong><br><strong>语法规则</strong>：<code>返回值 = 表达式1 ? 表达式2 : 表达式3</code><br><em>语法解释：先求表达式 1 的值，如果为真，则执行表达式 2，并返回表达式 2 的结果；如果表达式 1 的值为假，则执行表达式 3，并返回表达式 3 的结果。</em></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********使用 if else 语句实现**********/</span></span><br><span class="line"><span class="type">int</span> a=<span class="number">1</span>, b=<span class="number">2</span>, c;</span><br><span class="line"><span class="keyword">if</span>(a&gt;b) <span class="comment">// 设置一个判断条件，如果满足的话，执行下面的表达式</span></span><br><span class="line">&#123;</span><br><span class="line">	c=a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="comment">// 如果不满足上面的判断条件，就执行下面的表达式</span></span><br><span class="line">&#123;</span><br><span class="line">	c=b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**********使用 条件运算 符实现**********/</span></span><br><span class="line"><span class="type">int</span> a=<span class="number">1</span>, b=<span class="number">2</span>, c;</span><br><span class="line">c = (a&gt;b) ? a : b; <span class="comment">//c = (a&gt;b) ? 是判断条件，a : b是判断完成后的输出结果。满足就输出左边，不满足就输出右边</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><table>
 <thead>
 <tr>
@@ -733,13 +682,6 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/********** 错误的使用方式 **********/</span></span><br><span class="line"><span class="keyword">if</span>(a &lt; x &lt; b)</span><br><span class="line"></span><br><span class="line"><span class="comment">/********** 正确的使用 **********/</span></span><br><span class="line"><span class="keyword">if</span>(a &lt; x &amp;&amp; x &lt; b)</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p><strong>缓冲区</strong><br>C语言中的缓冲区又称为缓存，它是内存空间的一部分。也就是说，在内存空间中预留了一定的存储空间，这些存储空间用来缓冲输入或输出的数据，这部分预留的空间就叫做缓冲区。<br>C语缓冲区分为三种类型：1、全缓冲 2、行缓冲 3、不带缓冲。<br>缓冲区根据其对应的是输入设备还是输出设备，分为输入缓冲区和输出缓冲区。<br>例如，在我们平时要在磁盘中读取信息的情况下，先会把数据放到缓存区中，读取完后，再次从磁盘中读取信息。<br>缓存区，他的意义就是在高速CPU与低速的设备之间的一个区域，这个区域让CPU工作效率更高。</p>
-<ol>
-<li>全缓冲<br>当填满标准I&#x2F;O缓存后才进行实际I&#x2F;O操作。全缓冲的典型代表是对磁盘文件的读写。</li>
-<li>行缓冲<br>当在输入和输出中遇到换行符时，执行真正的I&#x2F;O操作。这时，我们输入的字符先存放在缓冲区，等按下回车键换行时才进行实际的I&#x2F;O操作。典型代表是标准输入(stdin)和标准输出(stdout)。</li>
-<li>不带缓冲<br>也就是不进行缓冲，标准出错情况stderr是典型代表，这使得出错信息可以直接尽快地显示出来。</li>
-</ol>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>[数组]由数据类型相同的一系列元素组成。需要使用[数组]时，通过声明数组告诉编译器数组中内含多少元素和这些元素的类型。编译器根据这些信息正确地创建数组。普通变量可以使用的类型，数组元素都可以用。</p>
 <h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>指针：从根本上看，指针（pointer ）是一个 <strong>值</strong> 为 <strong>内存地址的变量（或数据对象）</strong>。正如char 类型变量的值是字符，int 类型变量的值是整数，指针变量的值是地址。</p>
 <h2 id="声明指针"><a href="#声明指针" class="headerlink" title="声明指针"></a>声明指针</h2><p>声明指针变量时必须指定指针所指向变量的类型，因为不同的变量类型占用不同的存储空间，一些指针操作要求知道操作对象的大小。另外，程序必须知道储存在指定地址上的数据类型。long 和float 可能占用相同的存储空间，但是它们储存数字却大相径庭。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> * pi;            <span class="comment">// pi是指向int类型变量的指针</span></span><br><span class="line"><span class="type">char</span> * pc;           <span class="comment">// pc是指向char类型变量的指针</span></span><br><span class="line"><span class="type">float</span> * pf, * pg;    <span class="comment">// pf、pg都是指向float类型变量的指针</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// *和指针名之间的空格可有可无</span></span><br></pre></td></tr></table></figure>
@@ -747,7 +689,6 @@
 <h2 id="查找地址：-运算符"><a href="#查找地址：-运算符" class="headerlink" title="查找地址：&amp; 运算符"></a>查找地址：&amp; 运算符</h2><p><strong>一元 &amp; 运算符给出变量的存储地址。</strong><br><em>注解：后跟一个变量名时，&amp; 给出该变量的地址。</em><br>假设 pooh 是变量名，那么 &amp;pooh 是变量的地址。可以把地址看作是变量在内存中的位置。<br><code>pooh = 24;</code><br>假设pooh 的存储地址是0B76 （PC 地址通常用十六进制形式表示）。那么，下面的语句：<br><code>printf(&quot;%d %p\n&quot;, pooh, &amp;pooh);</code><br>将输出如下内容（%p 是输出地址的转换说明）：<br><code>24 0B76</code></p>
 <h2 id="间接运算符："><a href="#间接运算符：" class="headerlink" title="间接运算符： *"></a>间接运算符： *</h2><p><em>注解：后跟一个指针名或地址时，* 给出储存在指针指向地址上的值。</em><br>假设已知ptr 指向bah ，如下所示：<br><code>ptr = &amp;bah;</code><br>然后使用间接运算符 *（indirection operator ）找出储存在bah 中的值，该运算符有时也称为解引用运算符 （dereferencing operator ）。<br><code>val = *ptr; // 找出ptr指向的值</code><br>语句ptr &#x3D; &bah; 和val &#x3D; *ptr; 放在一起相当于下面的语句：<br><code>val = bah;</code><br><em>注：不要把间接运算符和二元乘法运算符（*）混淆，虽然它们使用的符号相同，但语法功能不同。</em></p>
 <h2 id="空字符和空指针"><a href="#空字符和空指针" class="headerlink" title="空字符和空指针"></a>空字符和空指针</h2><p>从概念上看，两者完全不同。空字符（或 &#39;\0’ ）是用于标记C字符串末尾的字符，其对应字符编码是0 。由于其他字符的编码不可能是0 ，所以不可能是字符串的一部分。<br>空指针（或NULL ）有一个值，该值不会与任何数据的有效地址对应。通常，函数使用它返回一个有效地址表示某些特殊情况发生，例如遇到文件结尾或未能按预期执行。<br>空字符是整数类型，而空指针是指针类型。两者有时容易混淆的原因是：它们都可以用数值0来表示。但是，从概念上看，两者是不同类型的0 。另外，空字符是一个字符，占1 字节；而空指针是一个地址，通常占4 字节。</p>
-<h1 id="存储类别说明符"><a href="#存储类别说明符" class="headerlink" title="存储类别说明符"></a>存储类别说明符</h1><p>C语言有6个关键字作为存储类别说明符：auto 、register 、static 、extern 、_Thread_local 和typedef</p>
 <hr>
 <h1 id="struct-结构体"><a href="#struct-结构体" class="headerlink" title="struct 结构体"></a>struct 结构体</h1><h2 id="定义结构"><a href="#定义结构" class="headerlink" title="定义结构"></a>定义结构</h2><h3 id="结构的变量"><a href="#结构的变量" class="headerlink" title="结构的变量"></a>结构的变量</h3><p>结构有两层含义。一层含义是“结构布局”。结构布局告诉编译器如何表示数据，但是它并未让编译器为数据分配空间。另一层是创建一个结构变量。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/********** 结构布局 **********/</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span>&#123;</span></span><br><span class="line">	<span class="type">char</span> title[MAXTITL];</span><br><span class="line">	<span class="type">char</span> author[MAXAUTL];</span><br><span class="line">	<span class="type">float</span> value;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 该声明描述了一个由两个字符数组和一个float类型变量组成的结构。</span></span><br><span class="line"><span class="comment">// 该声明并未创建实际的实际对象，只描述了该对象由什么组成。</span></span><br><span class="line"><span class="comment">// 关键字struct, 它表明跟在其后的是一个结构，后面是一个可选的标记(book)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/********** 结构变量 **********/</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">library</span>;</span> <span class="comment">// 把library声明为一个使用book结构布局的结构变量。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 编译器执行这行代码便创建了一个结构变量library 。</span></span><br><span class="line"><span class="comment">// 编译器使用book 模板为该变量分配空间：</span></span><br><span class="line"><span class="comment">// 一个内含MAXTITL 个元素的char 数组;</span></span><br><span class="line"><span class="comment">// 一个内含MAXAUTL 个元素的char 数组;</span></span><br><span class="line"><span class="comment">// 一个float 类型的变量。</span></span><br><span class="line"><span class="comment">// 这些存储空间都与一个名称library结合在一起.</span></span><br></pre></td></tr></table></figure>
@@ -791,7 +732,74 @@
 <h3 id="typedef-类型定义"><a href="#typedef-类型定义" class="headerlink" title="typedef 类型定义"></a>typedef 类型定义</h3><p>typedef 作用是为一种数据类型定义一个新名字，这里的数据类型包括内部数据类型（int，char等）和自定义的数据类型（struct等）。<br>typedef 本身是一种存储类的关键字，与 auto、extern、static、register 等关键字不能出现在同一个表达式中。<br>C语言允许为一个数据类型起一个新的别名，就像给人起“绰号”一样。<br>起别名的目的不是为了提高程序运行效率，而是为了编码方便。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/********** 给已定义的变量起个别名 **********/</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> <span class="type">uint8_t</span>; <span class="comment">//uint8_t就是unsigned char的别名，这是最基础的用法</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">	<span class="type">uint8_t</span> age;</span><br><span class="line">	<span class="type">uint8_t</span> height;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> _person <span class="type">person_t</span>;</span><br><span class="line"><span class="comment">//以上两段代码也可合并为一段，如下：</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="type">char</span> name[<span class="number">20</span>];me[<span class="number">20</span>];</span><br><span class="line">	<span class="type">uint8_t</span> age;</span><br><span class="line">	<span class="type">uint8_t</span> height;</span><br><span class="line">&#125;<span class="type">person_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 作用是给struct  __person起了个别名person_t，这种这种用法也很基础</span></span><br></pre></td></tr></table></figure>
 
-
+<h1 id="转义序列"><a href="#转义序列" class="headerlink" title="转义序列"></a>转义序列</h1><table>
+<thead>
+<tr>
+<th>转义序列</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\a</td>
+<td>警报（ANSI C）</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td>\</td>
+<td>反斜杠（ \ ）</td>
+</tr>
+<tr>
+<td>\‘</td>
+<td>单引号</td>
+</tr>
+<tr>
+<td>\“</td>
+<td>双引号</td>
+</tr>
+<tr>
+<td>\?</td>
+<td>问号</td>
+</tr>
+<tr>
+<td>\0oo</td>
+<td>八进制值（oo 必须是有效的八进制数，即每个o 可表示0 ～7 中的一个数）</td>
+</tr>
+<tr>
+<td>\xhh</td>
+<td>十六进制值（hh 必须是有效的十六进制数，即每个h 可表示0 ～f 中的一个数）</td>
+</tr>
+</tbody></table>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>[数组]由数据类型相同的一系列元素组成。需要使用[数组]时，通过声明数组告诉编译器数组中内含多少元素和这些元素的类型。编译器根据这些信息正确地创建数组。普通变量可以使用的类型，数组元素都可以用。</p>
+<h1 id="存储类别说明符"><a href="#存储类别说明符" class="headerlink" title="存储类别说明符"></a>存储类别说明符</h1><p>C语言有6个关键字作为存储类别说明符：auto 、register 、static 、extern 、_Thread_local 和typedef</p>
+<p><strong>缓冲区</strong><br>C语言中的缓冲区又称为缓存，它是内存空间的一部分。也就是说，在内存空间中预留了一定的存储空间，这些存储空间用来缓冲输入或输出的数据，这部分预留的空间就叫做缓冲区。<br>C语缓冲区分为三种类型：1、全缓冲 2、行缓冲 3、不带缓冲。<br>缓冲区根据其对应的是输入设备还是输出设备，分为输入缓冲区和输出缓冲区。<br>例如，在我们平时要在磁盘中读取信息的情况下，先会把数据放到缓存区中，读取完后，再次从磁盘中读取信息。<br>缓存区，他的意义就是在高速CPU与低速的设备之间的一个区域，这个区域让CPU工作效率更高。</p>
+<ol>
+<li>全缓冲<br>当填满标准I&#x2F;O缓存后才进行实际I&#x2F;O操作。全缓冲的典型代表是对磁盘文件的读写。</li>
+<li>行缓冲<br>当在输入和输出中遇到换行符时，执行真正的I&#x2F;O操作。这时，我们输入的字符先存放在缓冲区，等按下回车键换行时才进行实际的I&#x2F;O操作。典型代表是标准输入(stdin)和标准输出(stdout)。</li>
+<li>不带缓冲<br>也就是不进行缓冲，标准出错情况stderr是典型代表，这使得出错信息可以直接尽快地显示出来。</li>
+</ol>
 
     </div>
 
@@ -805,6 +813,13 @@
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2023/08/25/CAPL%20TestCase%EF%BC%9AExample/" rel="next" title="CAPL TestCase：Example">
+      CAPL TestCase：Example <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -862,7 +877,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-keyword"><span class="nav-number">1.</span> <span class="nav-text">C keyword</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%87%86"><span class="nav-number">1.1.</span> <span class="nav-text">标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-keyword"><span class="nav-number">1.2.</span> <span class="nav-text">数据类型 keyword</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-keyword%EF%BC%885%E4%B8%AA%EF%BC%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本数据类型 keyword（5个）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E9%A5%B0%E7%B1%BB%E5%9E%8B-keyword%EF%BC%884%E4%B8%AA%EF%BC%89"><span class="nav-number">1.2.2.</span> <span class="nav-text">修饰类型 keyword（4个）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E7%B1%BB%E5%9E%8B-keyword%EF%BC%885%E4%B8%AA%EF%BC%89"><span class="nav-number">1.2.3.</span> <span class="nav-text">复杂类型 keyword（5个）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%BA%A7%E5%88%AB%E7%B1%BB%E5%9E%8B-keyword%EF%BC%886%E4%B8%AA%EF%BC%89"><span class="nav-number">1.2.4.</span> <span class="nav-text">存储级别类型 keyword（6个）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6-keyword"><span class="nav-number">1.3.</span> <span class="nav-text">流程控制 keyword</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC%E7%BB%93%E6%9E%84%EF%BC%884%E4%B8%AA%EF%BC%89"><span class="nav-number">1.3.1.</span> <span class="nav-text">跳转结构（4个）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#continue"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">continue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#break"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#goto"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">goto</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84%EF%BC%885%E4%B8%AA%EF%BC%89"><span class="nav-number">1.3.2.</span> <span class="nav-text">分支结构（5个）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if-else"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">if else</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switch-case-default"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">switch case default</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%EF%BC%883%E4%B8%AA%EF%BC%89"><span class="nav-number">1.3.3.</span> <span class="nav-text">循环结构（3个）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#for"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">for</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#do-while"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">do while</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#while"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">while</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8"><span class="nav-number">1.3.3.4.</span> <span class="nav-text">注</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89%E5%BA%8F%E5%88%97"><span class="nav-number">2.</span> <span class="nav-text">转义序列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%A2%E5%BC%8F%E5%8F%82%E6%95%B0%E5%92%8C%E5%AE%9E%E9%99%85%E5%8F%82%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">形式参数和实际参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#define"><span class="nav-number">3.2.</span> <span class="nav-text">define</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92"><span class="nav-number">3.3.</span> <span class="nav-text">递归</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I-O%E5%87%BD%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">I&#x2F;O函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#printf"><span class="nav-number">4.1.</span> <span class="nav-text">printf()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#printf-%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E%E5%8F%8A%E5%85%B6%E6%89%93%E5%8D%B0%E7%9A%84%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C"><span class="nav-number">4.1.1.</span> <span class="nav-text">printf() 转换说明及其打印的输出结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#printf-%E7%9A%84%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-number">4.1.2.</span> <span class="nav-text">printf() 的修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#printf-%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AE%B0"><span class="nav-number">4.1.3.</span> <span class="nav-text">printf() 中的标记</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scanf"><span class="nav-number">4.2.</span> <span class="nav-text">scanf()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ANSI-C%E4%B8%ADscanf-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E"><span class="nav-number">4.2.1.</span> <span class="nav-text">ANSI C中scanf() 的转换说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scanf-%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E%E4%B8%AD%E7%9A%84%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-number">4.2.2.</span> <span class="nav-text">scanf() 转换说明中的修饰符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getchar"><span class="nav-number">4.3.</span> <span class="nav-text">getchar()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#getchar-%E5%BC%A5%E8%A1%A5scanf-%E5%AD%98%E5%9C%A8%E7%9A%84%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%EF%BC%9A%E2%80%9D-n%E2%80%9D"><span class="nav-number">4.3.1.</span> <span class="nav-text">getchar()弥补scanf()存在的一个问题：”\n”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getchar-%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B0%E7%94%A8%E6%B3%95"><span class="nav-number">4.3.2.</span> <span class="nav-text">getchar()函数的新用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#putchar"><span class="nav-number">4.4.</span> <span class="nav-text">putchar()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C%E7%9A%84%E4%B8%80%E4%BA%9B%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">5.</span> <span class="nav-text">C的一些运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">5.1.</span> <span class="nav-text">算数运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">5.2.</span> <span class="nav-text">条件运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">5.3.</span> <span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">5.4.</span> <span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%97%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">5.5.</span> <span class="nav-text">逗号运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">5.6.</span> <span class="nav-text">逻辑运算符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">6.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E9%92%88"><span class="nav-number">7.</span> <span class="nav-text">指针</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">7.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E6%8C%87%E9%92%88"><span class="nav-number">7.2.</span> <span class="nav-text">声明指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%9C%B0%E5%9D%80%EF%BC%9A-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">7.3.</span> <span class="nav-text">查找地址：&amp; 运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%B4%E6%8E%A5%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A"><span class="nav-number">7.4.</span> <span class="nav-text">间接运算符： *</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E5%AD%97%E7%AC%A6%E5%92%8C%E7%A9%BA%E6%8C%87%E9%92%88"><span class="nav-number">7.5.</span> <span class="nav-text">空字符和空指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%B1%BB%E5%88%AB%E8%AF%B4%E6%98%8E%E7%AC%A6"><span class="nav-number">8.</span> <span class="nav-text">存储类别说明符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#struct-%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-number">9.</span> <span class="nav-text">struct 结构体</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E7%BB%93%E6%9E%84"><span class="nav-number">9.1.</span> <span class="nav-text">定义结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E7%9A%84%E5%8F%98%E9%87%8F"><span class="nav-number">9.1.1.</span> <span class="nav-text">结构的变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E7%9A%84%E7%AE%80%E5%8C%96"><span class="nav-number">9.1.2.</span> <span class="nav-text">结构的简化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">9.1.3.</span> <span class="nav-text">结构的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E7%BB%93%E6%9E%84%E6%88%90%E5%91%98"><span class="nav-number">9.1.4.</span> <span class="nav-text">访问结构成员</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E6%95%B0%E7%BB%84%E5%92%8C%E5%B5%8C%E5%A5%97"><span class="nav-number">9.2.</span> <span class="nav-text">结构数组和嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E6%8C%87%E9%92%88"><span class="nav-number">9.3.</span> <span class="nav-text">结构指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#enum-%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B"><span class="nav-number">9.4.</span> <span class="nav-text">enum 枚举类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC"><span class="nav-number">9.4.1.</span> <span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#typedef-%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="nav-number">9.4.2.</span> <span class="nav-text">typedef 类型定义</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-keyword"><span class="nav-number">1.</span> <span class="nav-text">C keyword</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%87%86"><span class="nav-number">1.1.</span> <span class="nav-text">标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-keyword"><span class="nav-number">1.2.</span> <span class="nav-text">数据类型 keyword</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-keyword%EF%BC%885%E4%B8%AA%EF%BC%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本数据类型 keyword（5个）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E9%A5%B0%E7%B1%BB%E5%9E%8B-keyword%EF%BC%884%E4%B8%AA%EF%BC%89"><span class="nav-number">1.2.2.</span> <span class="nav-text">修饰类型 keyword（4个）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E7%B1%BB%E5%9E%8B-keyword%EF%BC%885%E4%B8%AA%EF%BC%89"><span class="nav-number">1.2.3.</span> <span class="nav-text">复杂类型 keyword（5个）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%BA%A7%E5%88%AB%E7%B1%BB%E5%9E%8B-keyword%EF%BC%886%E4%B8%AA%EF%BC%89"><span class="nav-number">1.2.4.</span> <span class="nav-text">存储级别类型 keyword（6个）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6-keyword"><span class="nav-number">1.3.</span> <span class="nav-text">流程控制 keyword</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC%E7%BB%93%E6%9E%84%EF%BC%884%E4%B8%AA%EF%BC%89"><span class="nav-number">1.3.1.</span> <span class="nav-text">跳转结构（4个）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#continue"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">continue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#break"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#goto"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">goto</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84%EF%BC%885%E4%B8%AA%EF%BC%89"><span class="nav-number">1.3.2.</span> <span class="nav-text">分支结构（5个）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if-else"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">if else</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switch-case-default"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">switch case default</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%EF%BC%883%E4%B8%AA%EF%BC%89"><span class="nav-number">1.3.3.</span> <span class="nav-text">循环结构（3个）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#for"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">for</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#do-while"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">do while</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#while"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">while</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8"><span class="nav-number">1.3.3.4.</span> <span class="nav-text">注</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%A2%E5%BC%8F%E5%8F%82%E6%95%B0%E5%92%8C%E5%AE%9E%E9%99%85%E5%8F%82%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">形式参数和实际参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#define"><span class="nav-number">2.2.</span> <span class="nav-text">define</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92"><span class="nav-number">2.3.</span> <span class="nav-text">递归</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I-O%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">I&#x2F;O函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#printf"><span class="nav-number">3.1.</span> <span class="nav-text">printf()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#printf-%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E%E5%8F%8A%E5%85%B6%E6%89%93%E5%8D%B0%E7%9A%84%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C"><span class="nav-number">3.1.1.</span> <span class="nav-text">printf() 转换说明及其打印的输出结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#printf-%E7%9A%84%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-number">3.1.2.</span> <span class="nav-text">printf() 的修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#printf-%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AE%B0"><span class="nav-number">3.1.3.</span> <span class="nav-text">printf() 中的标记</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scanf"><span class="nav-number">3.2.</span> <span class="nav-text">scanf()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ANSI-C%E4%B8%ADscanf-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E"><span class="nav-number">3.2.1.</span> <span class="nav-text">ANSI C中scanf() 的转换说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scanf-%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E%E4%B8%AD%E7%9A%84%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-number">3.2.2.</span> <span class="nav-text">scanf() 转换说明中的修饰符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getchar"><span class="nav-number">3.3.</span> <span class="nav-text">getchar()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#getchar-%E5%BC%A5%E8%A1%A5scanf-%E5%AD%98%E5%9C%A8%E7%9A%84%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%EF%BC%9A%E2%80%9D-n%E2%80%9D"><span class="nav-number">3.3.1.</span> <span class="nav-text">getchar()弥补scanf()存在的一个问题：”\n”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getchar-%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B0%E7%94%A8%E6%B3%95"><span class="nav-number">3.3.2.</span> <span class="nav-text">getchar()函数的新用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#putchar"><span class="nav-number">3.4.</span> <span class="nav-text">putchar()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C%E7%9A%84%E4%B8%80%E4%BA%9B%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.</span> <span class="nav-text">C的一些运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.1.</span> <span class="nav-text">算数运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.2.</span> <span class="nav-text">条件运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.3.</span> <span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.4.</span> <span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%97%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.5.</span> <span class="nav-text">逗号运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.6.</span> <span class="nav-text">逻辑运算符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E9%92%88"><span class="nav-number">5.</span> <span class="nav-text">指针</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">5.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E6%8C%87%E9%92%88"><span class="nav-number">5.2.</span> <span class="nav-text">声明指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%9C%B0%E5%9D%80%EF%BC%9A-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">5.3.</span> <span class="nav-text">查找地址：&amp; 运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%B4%E6%8E%A5%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A"><span class="nav-number">5.4.</span> <span class="nav-text">间接运算符： *</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E5%AD%97%E7%AC%A6%E5%92%8C%E7%A9%BA%E6%8C%87%E9%92%88"><span class="nav-number">5.5.</span> <span class="nav-text">空字符和空指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#struct-%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-number">6.</span> <span class="nav-text">struct 结构体</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E7%BB%93%E6%9E%84"><span class="nav-number">6.1.</span> <span class="nav-text">定义结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E7%9A%84%E5%8F%98%E9%87%8F"><span class="nav-number">6.1.1.</span> <span class="nav-text">结构的变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E7%9A%84%E7%AE%80%E5%8C%96"><span class="nav-number">6.1.2.</span> <span class="nav-text">结构的简化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">6.1.3.</span> <span class="nav-text">结构的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E7%BB%93%E6%9E%84%E6%88%90%E5%91%98"><span class="nav-number">6.1.4.</span> <span class="nav-text">访问结构成员</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E6%95%B0%E7%BB%84%E5%92%8C%E5%B5%8C%E5%A5%97"><span class="nav-number">6.2.</span> <span class="nav-text">结构数组和嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E6%8C%87%E9%92%88"><span class="nav-number">6.3.</span> <span class="nav-text">结构指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#enum-%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.4.</span> <span class="nav-text">enum 枚举类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC"><span class="nav-number">6.4.1.</span> <span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#typedef-%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="nav-number">6.4.2.</span> <span class="nav-text">typedef 类型定义</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89%E5%BA%8F%E5%88%97"><span class="nav-number">7.</span> <span class="nav-text">转义序列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">8.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%B1%BB%E5%88%AB%E8%AF%B4%E6%98%8E%E7%AC%A6"><span class="nav-number">9.</span> <span class="nav-text">存储类别说明符</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -878,14 +893,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -925,12 +940,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">11k</span>
+    <span title="站点总字数">13k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">40 分钟</span>
+    <span title="站点阅读时长">47 分钟</span>
 </div>
 
 
