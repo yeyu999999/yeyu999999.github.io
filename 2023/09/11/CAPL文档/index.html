@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="CAPL Help 笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CAPL 文档">
+<meta property="og:url" content="http://example.com/2023/09/11/CAPL%E6%96%87%E6%A1%A3/index.html">
+<meta property="og:site_name" content="叶愚的博客">
+<meta property="og:description" content="CAPL Help 笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-11T14:21:00.000Z">
+<meta property="article:modified_time" content="2023-09-11T14:30:40.634Z">
+<meta property="article:author" content="叶愚">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/09/11/CAPL%E6%96%87%E6%A1%A3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CAPL 文档 | 叶愚的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">叶愚的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间轴<span class="badge">5</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/11/CAPL%E6%96%87%E6%A1%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="叶愚">
+      <meta itemprop="description" content="假如再也见不到你,就祝你早安，午安，晚安!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="叶愚的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CAPL 文档
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-09-11 22:21:00 / 修改时间：22:30:40" itemprop="dateCreated datePublished" datetime="2023-09-11T22:21:00+08:00">2023-09-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CANoe/" itemprop="url" rel="index"><span itemprop="name">CANoe</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CANoe/CAPL/" itemprop="url" rel="index"><span itemprop="name">CAPL</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>CAPL Help 笔记</p>
+<span id="more"></span>
+<h1 id="CAPL-常用"><a href="#CAPL-常用" class="headerlink" title="CAPL 常用"></a>CAPL 常用</h1><h2 id="Keywords"><a href="#Keywords" class="headerlink" title="Keywords"></a>Keywords</h2><table>
+<thead>
+<tr>
+<th>keywrds</th>
+<th>符号</th>
+<th>Byte</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte</td>
+<td>unsigned</td>
+<td>1</td>
+<td>声明一个字节变量</td>
+</tr>
+<tr>
+<td>word</td>
+<td>unsigned</td>
+<td>2</td>
+<td>声明两个字节变量</td>
+</tr>
+<tr>
+<td>dword</td>
+<td>unsigned</td>
+<td>4</td>
+<td>声明四个字节变量</td>
+</tr>
+<tr>
+<td>int</td>
+<td>signed</td>
+<td>2</td>
+<td>声明两个字节整数</td>
+</tr>
+<tr>
+<td>long</td>
+<td>signed</td>
+<td>4</td>
+<td>声明四个字节变量</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>signed</td>
+<td>8</td>
+<td>.</td>
+</tr>
+<tr>
+<td>qword</td>
+<td>unsigned</td>
+<td>8</td>
+<td>声明八个字节的变量</td>
+</tr>
+<tr>
+<td>char</td>
+<td>.</td>
+<td>1</td>
+<td>声明一个字符串</td>
+</tr>
+<tr>
+<td>float</td>
+<td>.</td>
+<td>8</td>
+<td>声.明一个浮点数，8个字节</td>
+</tr>
+<tr>
+<td>double</td>
+<td>.</td>
+<td>8</td>
+<td>声明一个浮点数，8个字节</td>
+</tr>
+</tbody></table>
+<h2 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h2><table>
+<thead>
+<tr>
+<th>特殊符号</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$</td>
+<td>In CAPL, you can directly access signal values.<br>For this purpose, write a dollar sign $ in front of the signal name.<br>value &#x3D; $EngineSpeed;</td>
+</tr>
+<tr>
+<td>@</td>
+<td>You can read and change environment variables without using the functions getValue and putValue.<br>For this purpose, place an @ in front of the name of the environment variable.<br>intValue &#x3D; @EnvLightState;</td>
+</tr>
+<tr>
+<td>*</td>
+<td>(1) 指针变量。例：int * p; p是变量名, int * 是整型的指针类型<br>(2) 乘法：算数运算符</td>
+</tr>
+</tbody></table>
+<h2 id="Structuring-Elements-XML"><a href="#Structuring-Elements-XML" class="headerlink" title="Structuring Elements (XML)"></a>Structuring Elements (XML)</h2><table>
+<thead>
+<tr>
+<th>Structure Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Test Module</td>
+<td>测试模块用于指定和验证单个开发步骤，检查原型或实施回归和一致性测试。<br>它们由许多测试用例组成。</td>
+</tr>
+<tr>
+<td>Test Group</td>
+<td>测试组专门充当执行树结构的分组元素。它不包含实现逻辑。它可以依次包含其他测试组或元素，例如测试用例。</td>
+</tr>
+<tr>
+<td>Test Case</td>
+<td>测试用例包含测试执行的实际指令。</td>
+</tr>
+<tr>
+<td>CAPL Test Case</td>
+<td>用CAPL编写的测试用例可以在XML测试模块中引用。</td>
+</tr>
+<tr>
+<td>.NET Test Case</td>
+<td>用.net编写的测试用例可以在XML测试模块中引用。</td>
+</tr>
+<tr>
+<td>Test Case Template</td>
+<td>测试用例模板是通用的测试用例，它定义了测试用例内容并包含了参数占位符。</td>
+</tr>
+<tr>
+<td>Test Case Instance</td>
+<td>测试用例实例是从测试用例模板派生出来的，并填充了参数值。</td>
+</tr>
+<tr>
+<td><font color=blue >Position</font></td>
+<td><font color=blue >在索引位置搜索 <code>Structuring Elements (XML)</code> </font></td>
+</tr>
+</tbody></table>
+<!-- ******************************分页****************************** -->
+<h1 id="CAPL-Introduction"><a href="#CAPL-Introduction" class="headerlink" title="CAPL Introduction"></a>CAPL Introduction</h1><h2 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h2><p><font color=blue>Keywords</font>：CAPL对象，指令，设置信号值，结构体，DBC访问，TestCase定义，this事件指针<br><font color=blue>Instructions, Expressions, Operators in CAPL</font>：CAPL语法章节，也是基于C语言的。<br><font color=blue>Reuse CAPL code（Macros）</font>：重复使用CAPL宏代码。<br><font color=blue>Autocomplete Input Assistance</font>：自动补全输入辅助。<br><font color=blue>Classes and Objects in CAPL</font>：CAPL中的类和对象<br><font color=blue>Arrays</font>：数组。<br><font color=blue>Structures</font>：结构体。<br><font color=blue>Enumeration Types</font>：枚举。<br><font color=blue>Associative Fields</font>：关联字段。<br><font color=blue>Message</font>：报文声明。<br><font color=blue>Selectors</font>：设置或读取CAN message的属性。</p>
+<h2 id="Structure-of-a-CAPL-Program"><a href="#Structure-of-a-CAPL-Program" class="headerlink" title="Structure of a CAPL Program"></a>Structure of a CAPL Program</h2><p><font color=red>Variables</font>：全局变量。介绍变量的声明，关键字和类型的章节。<br><font color=red>Include Files</font>：引入外部文件。<br><font color=red>Event Procedures</font>：CAPL事件程序的概述。</p>
+<h2 id="Compile-a-CAPL-Programs"><a href="#Compile-a-CAPL-Programs" class="headerlink" title="Compile a CAPL Programs"></a>Compile a CAPL Programs</h2><p><font color=green>该章节介绍CAPL文件的编译功能和方法。</font></p>
+<h2 id="Working-with-Databases"><a href="#Working-with-Databases" class="headerlink" title="Working with Databases"></a>Working with Databases</h2><p><font color=#FFA500>CANoe支持使用Databases，Databases是在cand++ Editor1的帮助下创建和编辑的。</font></p>
+<h2 id="Access-to-Values-Signals-in-CAPL"><a href="#Access-to-Values-Signals-in-CAPL" class="headerlink" title="Access to Values&#x2F;Signals in CAPL"></a>Access to Values&#x2F;Signals in CAPL</h2><p><font color=#871F78>本章节介绍在CAPL中如何访问和设置信号、系统变量、环境变量的值。</font></p>
+<!-- ******************************分页****************************** -->
+<h1 id="CAPL-Functions"><a href="#CAPL-Functions" class="headerlink" title="CAPL Functions"></a>CAPL Functions</h1><h2 id="General-CAPL-Functions"><a href="#General-CAPL-Functions" class="headerlink" title="General CAPL Functions"></a>General CAPL Functions</h2><p><font color=blue >&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>Database Access</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=blue >lookupMessage</font>：Searches for a message definition in the database(s).<br><font color=blue >lookupSignal</font>：Searches for a signal in the database(s).<br><font color=blue >lookupServiceSignal</font>：Searches for a SOME&#x2F;IP Service Signal in the database(s).<br><font color=blue >lookupSysvar</font>Searches for a system variable definition.</p>
+<blockquote>
+<p><em>数据库访问：<code>DBC</code>的报文，SOME&#x2F;IP的服务信号，系统变量等等</em></p>
+</blockquote>
+<p><font color=red >&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>Flow Control</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=red >canOffline</font>：Cuts the connection between the node and the bus.<br><font color=red >canOnline</font>：Restores the connection of the node to the bus.<br><font color=red >stop</font>：Programmed interrupt of the ongoing measurement.</p>
+<blockquote>
+<p><em>流程控制：切断节点，接通节点，停止测量程序等等</em></p>
+</blockquote>
+<p><font color=green >&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>Language Support and Debugging</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=green >elCount </font>：Determines the number of elements of an array.</p>
+<blockquote>
+<p><em>语言支持和调试：数组元素数量，CAPL文件名称，debug，write输出优先级等等</em></p>
+</blockquote>
+<p><font color=#FFA500 >&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>logging Functions</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=#FFA500 >StartLogging</font>：Starts all Logging Blocks immediately bypassing all logging trigger settings.<br><font color=#FFA500 >StopLogging</font>：Stops all Logging Blocks immediately bypassing all logging trigger settings.</p>
+<blockquote>
+<p><em>日志记录功能函数</em></p>
+</blockquote>
+<p><font color=#871F78 >&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>User Interactions</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=#871F78 >write</font>：Outputs a text message to the Write Window.</p>
+<blockquote>
+<p><em>用户交互：Write窗户的函数最多</em></p>
+</blockquote>
+<h2 id="CAN-CAPL-Functions"><a href="#CAN-CAPL-Functions" class="headerlink" title="CAN CAPL Functions"></a>CAN CAPL Functions</h2><p><font color=blue>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>Selectors</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=blue>Message</font>：Detailed description of the CAN message selectors.<br><font color=blue>ErrorFrame</font>：Detailed description of the CAN Error Frame selectors.</p>
+<blockquote>
+<p><em>这两个和<code>CAPL</code>事件程序中的<code>this</code>关键字相关。</em><br>举例（1）：this.ID &#x3D;&#x3D; 0x600;<br>举例（2）：this.Byte(0) &#x3D;&#x3D; 22;</p>
+</blockquote>
+<p><font color=red>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>Event Procedures</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=red>on message</font>：Receipt of a CAN message.<br><font color=red>on signal</font>：Is called with every signal change.<br><font color=red>on busOff</font>：CAN controller goes to Bus Off.</p>
+<blockquote>
+<p><em><code>CAPL</code>的事件程序，和 General Event Procedures这个章节存在关联</em></p>
+</blockquote>
+<p><font color=#FFA500>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>CANdb API</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=#FFA500>getMessageAttrInt</font>：Gets the value of a message attribute from the database.<br><font color=#FFA500>GetMessageID</font>：Finds out the message ID.<br><font color=#FFA500>setSignalStartValues</font>：Sets the values of the signals in the parameter to the start values defined in the database.</p>
+<blockquote>
+<p><em>和DBC相关的函数</em></p>
+</blockquote>
+<h2 id="Diagnostics-CAPL-Functions"><a href="#Diagnostics-CAPL-Functions" class="headerlink" title="Diagnostics CAPL Functions"></a>Diagnostics CAPL Functions</h2><p><font color=blue>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>Event Procedures</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=blue>on diagRequest</font>：Is called when a diagnostic request is received in the ECU simulation.<br><font color=blue>on diagRequestSent</font>：Is called when a diagnostic request has been sent by the tester.<br><font color=blue>on diagResponse</font>：Is called when a diagnostic response is received in the tester.</p>
+<blockquote>
+<p><em>诊断类型的CAPL事件程序</em></p>
+</blockquote>
+<p><font color=#FFA500>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>Security Access</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=#FFA500>diagGenerateKeyFromSeed</font>：Creates a key to execute secured diagnostic functions within devices.<br><font color=#FFA500>diagSetCurrentSession</font>：Sets the diagnostics session currently active in the ECU.<br><font color=#FFA500>diagStartGenerateKeyFromSeed</font>：Starts generation of the security key from the seed using a Seed &amp; Key DLL.<br><font color=#FFA500>_Diag_GenerateKeyResult</font>：Indicates the result of the security key computation started with DiagStartGenerateKeyFromSeed.<br><font color=#FFA500>diagStartAuth</font>：Starts the diagnostics authentication process.<br><font color=#FFA500>diagStartAuthGeneric</font>：Starts the diagnostics authentication process generic.<br><font color=#FFA500>_Diag_AuthResult</font>：Indicates the result of the diagnostics authentication process started with diagStartAuth&#x2F;diagStartAuthGeneric.</p>
+<blockquote>
+<p><em>诊断安全访问：Key的创建，生成，计算，验证；设置会话等等</em></p>
+</blockquote>
+<p><font color=#871F78>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>Functions for Access to the Whole Object</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=#871F78>diagResize</font>：Adapt size of a diagnostic object to match specified parameter iterations, or set size of bus message to given number of byte.<br><font color=#871F78>diagSetPrimitiveData</font>：Sets the raw data of the complete service primitive.</p>
+<blockquote>
+<p><em>用于访问整个对象的函数。</em>“还没有完全理解透彻”</p>
+</blockquote>
+<p><font color=red>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>Functions for Access to One Parameter</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=red>diagSetParameter</font>：①Sets the numeric parameter to the specified value. ②Sets a parameter to the symbolically-specified value.</p>
+<blockquote>
+<p><em>访问一个参数</em></p>
+</blockquote>
+<p><font color=green>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>Functions for Communication and Setup</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=green>diagSendNetwork</font>：Sends a Request to all ECUs on this bus.<br><font color=green>diagSendRequest</font>：Sends the request object to the ECU.<br><font color=green>diagSendResponse</font>：Sends the response object back to the tester.<br><font color=green>diagSetTimeout</font>：Specifies the request timeout.</p>
+<blockquote>
+<p><em>交流和设置的诊断函数。</em></p>
+</blockquote>
+<h2 id="Object-Oriented-Programming"><a href="#Object-Oriented-Programming" class="headerlink" title="Object Oriented Programming"></a>Object Oriented Programming</h2><p><font color=red >Class: DiagRequest</font>：定义诊断请求服务。<br><font color=red >Class: DiagResponse</font>：与诊断服务响应的肯定响应。</p>
+<h2 id="Signal-Access-CAPL-Functions"><a href="#Signal-Access-CAPL-Functions" class="headerlink" title="Signal Access CAPL Functions"></a>Signal Access CAPL Functions</h2><table>
+<thead>
+<tr>
+<th align="left"><font color=red>Functions</font></th>
+<th align="left"><font color=red>Short Description</font></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">getSignalDescriptionForValue</td>
+<td align="left">检索DBC信号值的描述</td>
+</tr>
+<tr>
+<td align="left">getSignalValueForDescription</td>
+<td align="left">检索一个数据库信号值描述的值</td>
+</tr>
+</tbody></table>
+<h2 id="Test-Feature-Set"><a href="#Test-Feature-Set" class="headerlink" title="Test Feature Set"></a>Test Feature Set</h2><p><font color=blue >&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>Signal Oriented Tests</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=blue>checkSignalInRange</font>：根据条件检查信号、系统变量或环境变量的值。<br><font color=blue>testValidateSignalInRange</font><br><font color=blue>testValidateSignalOutsideRange</font><br><font color=blue>CheckSignalMatch</font>：将给定的值与信号、系统变量或环境变量的值进行比较<br><font color=blue>TestValidateSignalMatch</font><br><font color=blue>GetRawSignal</font>：获取信号的当前原始值。<br><font color=blue>getSignal</font>：获取一个信号的值。<br><font color=blue>SetRawSignal</font>：设置一个信号的原始值。<br><font color=blue>SetSignal</font>：将传输信号设置为指定的值。<br><font color=blue>TestResetNodeSignalValues</font>：把一个节点的所有TX信号重置为初始值。<br><font color=blue>TestResetSignalValue</font>：重置一个信号的初始值。<br><font color=blue>TestResetSysVarValue</font>：重置一个系统变量的初始值。</p>
+<blockquote>
+<p><em>针对信号值测试的CPAL函数</em></p>
+</blockquote>
+<p><font color=red>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; **Test Controlling ** &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=red >TestSetEcuOffline</font>：从总线断开ECU，由ECU转发的消息将不会转发到总线。<br><font color=red >TestSetEcuOnline,</font>：将ECU连接到总线上，由ECU发送的消息将转发到总线上。</p>
+<p><font color=green>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>Test Report</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=green>TestCaseComment</font>：在测试用例中添加一条注释，可以带入报告中，不影响测试结果。<br><font color=green>testGetCurrentTestCaseTitle</font>：返回当前测试用例的名称。<br><font color=green>testGetTestConfigurationName</font>：返回测试配置的名称。<br><font color=green>testGetTestUnitName</font>：返回测试单元的名称。<br><font color=green>TestReportFileName</font>：设置报告文件的名称和路径。<br><font color=green>TestReportWriteDiagObject</font>：将测试报告中诊断请求的文本解释写入HTML表中。<br><font color=green>TestReportWriteDiagResponse</font>：将测试报告中诊断响应的文本解释写入HTML表中。</p>
+<blockquote>
+<p><em>TestCase注释，TestCase添加外部引用，TestCase诊断等等为主的三个部分</em></p>
+</blockquote>
+<p><font color=#FFA500 >&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>Test Structuring</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=#FFA500>TestCaseDescription</font>：可以在test case 的报告中写入测试说明。<br><font color=#FFA500>TestCaseSkipped</font>：将测试用例标记为未执行。只能在MainTest函数中执行。<br><font color=#FFA500>TestCaseTitle</font>：测试用例的标题是从CAPL程序中的测试用例名称中自动获取的。<br><font color=#FFA500>TestStep</font>：报告一个不影响结果的测试步骤。<br><font color=#FFA500>TestStepFail</font>：描述导致错误的测试步骤。<br><font color=#FFA500>TestStepPass</font>：报告按照预期执行的测试步骤。<br><font color=#FFA500>TestStepWarning</font>：描述test case 执行时没有错误，但是结果可能会在以后造成问题。</p>
+<blockquote>
+<p><em>可以testCase里面的函数，用来描述测试测试步骤，测试结果</em></p>
+</blockquote>
+<p><font color=#871F78>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; <strong>Wait Instructions</strong> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</font><br><font color=#871F78>TestAddTriggerTesterAction</font>：为TestCreateTesterAction创建的测试操作添加一个trigger。<br><font color=#871F78>TestCreateTesterAction</font>：创建一个测试操作。每当trigger发生时，都会检查该条件。<br><font color=#871F78>TestWaitForSignalInRange</font>：检查信号、系统或环境变量的值是否在定义值的<strong>范围内</strong>。<br><font color=#871F78>TestWaitForSignalOutsideRange</font>：检查信号、系统或环境变量的值是否在定义值的<strong>范围之外</strong>。<br><font color=#871F78>TestWaitForSignalMatch</font>：检查得到的值是否与信号、系统变量或环境变量的值相匹配。<br><font color=#871F78>TestWaitForTesterConfirmation</font>：创建一个弹出窗口并等待tester确认。<br><font color=#871F78>TestWaitForTimeout</font>：等待直到指定的时间结束（延时等待）。<br><font color=#871F78>TestWaitForMessage</font>：等待指定的Message出现。<br><font color=#871F78>TestWaitForEthernetLinkStatus</font>：Waits for an Ethernet link status.</p>
+<!-- ******************************分页****************************** -->
+<h1 id="Panel-Designer"><a href="#Panel-Designer" class="headerlink" title="Panel Designer"></a>Panel Designer</h1><p><font color=green>Overview</font>：Panel面板的概述。<br><font color=green>Ribbon</font>：功能菜单介绍。<br><font color=green>Controls</font>：工具箱功能介绍。<br><font color=green>Windows</font>：Panel的窗口介绍。<br><font color=green>Keyboard Operations</font>：组合键介绍。<br><font color=green>Procedures</font>：Panel简单教程。<br><font color=green>tips &amp;&amp; tricks</font>：显示和输入十六进制或者二进制，Panel的转换说明。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/08/25/CAPL%20Diagnostics%EF%BC%9AExample/" rel="prev" title="CAPL Diagnostics：Example">
+      <i class="fa fa-chevron-left"></i> CAPL Diagnostics：Example
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/09/11/PWM%E5%8E%9F%E7%90%86/" rel="next" title="PWM原理">
+      PWM原理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CAPL-%E5%B8%B8%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">CAPL 常用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Keywords"><span class="nav-number">1.1.</span> <span class="nav-text">Keywords</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.2.</span> <span class="nav-text">特殊符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Structuring-Elements-XML"><span class="nav-number">1.3.</span> <span class="nav-text">Structuring Elements (XML)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CAPL-Introduction"><span class="nav-number">2.</span> <span class="nav-text">CAPL Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basics"><span class="nav-number">2.1.</span> <span class="nav-text">Basics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Structure-of-a-CAPL-Program"><span class="nav-number">2.2.</span> <span class="nav-text">Structure of a CAPL Program</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compile-a-CAPL-Programs"><span class="nav-number">2.3.</span> <span class="nav-text">Compile a CAPL Programs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Working-with-Databases"><span class="nav-number">2.4.</span> <span class="nav-text">Working with Databases</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Access-to-Values-Signals-in-CAPL"><span class="nav-number">2.5.</span> <span class="nav-text">Access to Values&#x2F;Signals in CAPL</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CAPL-Functions"><span class="nav-number">3.</span> <span class="nav-text">CAPL Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#General-CAPL-Functions"><span class="nav-number">3.1.</span> <span class="nav-text">General CAPL Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAN-CAPL-Functions"><span class="nav-number">3.2.</span> <span class="nav-text">CAN CAPL Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diagnostics-CAPL-Functions"><span class="nav-number">3.3.</span> <span class="nav-text">Diagnostics CAPL Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-Oriented-Programming"><span class="nav-number">3.4.</span> <span class="nav-text">Object Oriented Programming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Signal-Access-CAPL-Functions"><span class="nav-number">3.5.</span> <span class="nav-text">Signal Access CAPL Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-Feature-Set"><span class="nav-number">3.6.</span> <span class="nav-text">Test Feature Set</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Panel-Designer"><span class="nav-number">4.</span> <span class="nav-text">Panel Designer</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="叶愚"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">叶愚</p>
+  <div class="site-description" itemprop="description">假如再也见不到你,就祝你早安，午安，晚安!</div>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶愚</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">17k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:01</span>
+</div>
+
+
+<!-- <br /> -->
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<!-- <span id="times">载入时分秒...</span> -->
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("08/19/2023 12:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); 
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        // var times = document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "+hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
