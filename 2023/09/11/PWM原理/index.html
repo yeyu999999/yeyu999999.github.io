@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="PWM原理的简单理解。">
+  <meta name="description" content="简介">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PWM原理">
 <meta property="og:url" content="http://example.com/2023/09/11/PWM%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="叶愚的博客">
-<meta property="og:description" content="PWM原理的简单理解。">
+<meta property="og:description" content="简介">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-11T14:29:59.000Z">
-<meta property="article:modified_time" content="2023-09-11T14:33:06.827Z">
+<meta property="article:modified_time" content="2024-01-27T13:00:16.875Z">
 <meta property="article:author" content="叶愚">
 <meta name="twitter:card" content="summary">
 
@@ -124,7 +124,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间轴<span class="badge">5</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间轴<span class="badge">7</span></a>
 
   </li>
   </ul>
@@ -173,10 +173,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-09-11 22:29:59 / 修改时间：22:33:06" itemprop="dateCreated datePublished" datetime="2023-09-11T22:29:59+08:00">2023-09-11</time>
+              <time title="创建时间：2023-09-11 22:29:59" itemprop="dateCreated datePublished" datetime="2023-09-11T22:29:59+08:00">2023-09-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-27 21:00:16" itemprop="dateModified" datetime="2024-01-27T21:00:16+08:00">2024-01-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -216,9 +222,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>PWM原理的简单理解。</p>
-<span id="more"></span>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>脉冲宽度调制(PWM, Pulse Width Modulation)，简称<strong>脉宽调制</strong>。是利用微处理器的数字输出来对模拟电路进行控制的一种非常有效的技术，广泛应用在从测量、通信到功率控制与变换的许多领域中。<br>PWM是一种数字信号，最常用于控制电路。该信号在预定义的时间和速度中设置为高（5v或3.3v）和低（0v）。通常，我们将PWM的高电平称为1，低电平为0。</p>
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><span id="more"></span>
+<p>脉冲宽度调制(PWM, Pulse Width Modulation)，简称<strong>脉宽调制</strong>。是利用微处理器的数字输出来对模拟电路进行控制的一种非常有效的技术，广泛应用在从测量、通信到功率控制与变换的许多领域中。<br>PWM是一种数字信号，最常用于控制电路。该信号在预定义的时间和速度中设置为高（5v或3.3v）和低（0v）。通常，我们将PWM的高电平称为1，低电平为0。</p>
 <h1 id="周期和频率"><a href="#周期和频率" class="headerlink" title="周期和频率"></a>周期和频率</h1><p><strong>周期</strong>：一个脉冲信号从高电平到低电平再回到高电平，为一个周期。（高➤低➤高，1➤0➤1）<br><strong>频率</strong>：1秒内<strong>周期次数</strong>.<br><strong>单位</strong>：<strong>Hz</strong> ； 例：50Hz 100Hz<br><code>T = 1/f</code> 周期 &#x3D; 1 &#x2F; 频率<br>假如：频率是50Hz，周期 &#x3D; 1秒 &#x2F; 50Hz，<br>答案：周期 &#x3D; 20ms<br>也就是说一个周期是20ms，那么一秒钟就有50次PWM周期。</p>
 <blockquote>
 <p><em>1秒&#x3D;1000毫秒 (ms), 1毫秒&#x3D;1／1000秒 (s)； 1秒&#x3D;1000000 微秒 (μs), 1微秒&#x3D;1／1000000秒 (s)</em></p>
@@ -255,7 +260,10 @@
     <a href="/2023/09/11/CAPL%E6%96%87%E6%A1%A3/" rel="prev" title="CAPL 文档">
       <i class="fa fa-chevron-left"></i> CAPL 文档
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2023/12/23/%E3%80%8A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%8B/" rel="next" title="《面向对象和面向过程的区别》">
+      《面向对象和面向过程的区别》 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -351,7 +359,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -360,12 +368,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">17k</span>
+    <span title="站点总字数">19k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:01</span>
+    <span title="站点阅读时长">1:08</span>
 </div>
 
 
