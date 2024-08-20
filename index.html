@@ -117,12 +117,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间轴<span class="badge">7</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间轴<span class="badge">10</span></a>
 
   </li>
   </ul>
@@ -144,6 +144,439 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/20/CRC%E8%AE%A1%E7%AE%97%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="叶愚">
+      <meta itemprop="description" content="假如再也见不到你,就祝你早安，午安，晚安!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="叶愚的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/20/CRC%E8%AE%A1%E7%AE%97%E5%8E%9F%E7%90%86/" class="post-title-link" itemprop="url">CRC计算原理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-08-20 21:40:00 / 修改时间：21:39:19" itemprop="dateCreated datePublished" datetime="2024-08-20T21:40:00+08:00">2024-08-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>925</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>循环冗余校验（英语：Cyclic redundancy check，通称“CRC”）是一种根据网上数据包或计算机文件等数据产生简短固定位数校验码的一种散列函数，主要用来检测或校验数据传输或者保存后可能出现的错误。<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E6%A3%80%E6%9F%A5/10168241?fromtitle=CRC&fromid=1453359">参考：百度百科</a></p>
+<h1 id="CRC-计算原理"><a href="#CRC-计算原理" class="headerlink" title="CRC 计算原理"></a>CRC 计算原理</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数据：0x1C</span></span><br><span class="line"><span class="comment">// CRC算法：CRC-8-ROHC</span></span><br><span class="line"><span class="comment">// CRC多项式：$x^8+x^2+x+1$</span></span><br><span class="line"><span class="comment">// 初始值：FF</span></span><br><span class="line"><span class="comment">// 结果异或值：00</span></span><br><span class="line"><span class="comment">// 数据输入反转：true</span></span><br><span class="line"><span class="comment">// 数据输出反转：true</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>：<span class="number">0x1C</span>的二进制 <span class="number">0001</span> <span class="number">1100</span></span><br><span class="line"><span class="number">2</span>：输入数据反转 <span class="number">0011</span> <span class="number">1000</span></span><br><span class="line"></span><br><span class="line">                                  ___________1100_0101_____</span><br><span class="line">                    <span class="number">1000</span> <span class="number">0011</span> <span class="number">1</span>  / <span class="number">0011</span> <span class="number">1000</span> <span class="number">0000</span> <span class="number">0000</span>    <span class="comment">//由于选用的算法是CRC8，所以需要在数据后面补上8个字节</span></span><br><span class="line"><span class="number">3</span>：计算初始值                       <span class="number">1111</span> <span class="number">1111</span></span><br><span class="line">                                   ——————————</span><br><span class="line"><span class="number">4</span>：模二除法运算                     <span class="number">1100</span> <span class="number">0111</span> <span class="number">0</span></span><br><span class="line">                                   <span class="number">1000</span> <span class="number">0011</span> <span class="number">1</span></span><br><span class="line">                                   ————————————</span><br><span class="line">                                   <span class="number">0100</span> <span class="number">0100</span> <span class="number">10</span></span><br><span class="line">                                    <span class="number">100</span> <span class="number">0001</span> <span class="number">11</span></span><br><span class="line">                                   ————————————————</span><br><span class="line">                                    <span class="number">000</span> <span class="number">0101</span> <span class="number">0100</span> <span class="number">00</span></span><br><span class="line">                                         <span class="number">100</span> <span class="number">0001</span> <span class="number">11</span></span><br><span class="line">                                         —————————————</span><br><span class="line">                                         <span class="number">001</span> <span class="number">0101</span> <span class="number">1100</span></span><br><span class="line">                                           <span class="number">1</span> <span class="number">0000</span> <span class="number">0111</span></span><br><span class="line">                                         —————————————</span><br><span class="line">                                           <span class="number">0</span> <span class="number">0101</span> <span class="number">1011</span>  <span class="comment">// 使用模二除法算出来的结果</span></span><br><span class="line"><span class="number">5</span>：输出数据反转                                <span class="number">1101</span> <span class="number">1010</span></span><br><span class="line"><span class="number">6</span>：输出结果异或值                              <span class="number">0000</span> <span class="number">0000</span></span><br><span class="line">                                             ———————————</span><br><span class="line">                                             <span class="number">1101</span> <span class="number">1010</span> = <span class="number">0xDA</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// CRC的计算方式本质是进行【模二除法】运算（异或）</span></span><br><span class="line"><span class="comment">// 输入和输出数据是否【反转】取决于选择算法</span></span><br><span class="line"><span class="comment">// 输出结果异或值取决于选择的算法</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Note:<br>输入数据反转REFIN：输入数据的每个字节是否按位反转。<br>输出数据反转REFOUT：在计算后之后，结果输出之前，整个数据是否按位反转。<br>以字节为最小单位，低位变高位，高位变低位，<br>例如：0001 1001 <font color=Blue>0010 1010</font>得到的值是1001 1000 <font color=Blue>0101 0100</font>。</p>
+</blockquote>
+<h1 id="常见CRC参数表"><a href="#常见CRC参数表" class="headerlink" title="常见CRC参数表"></a>常见CRC参数表</h1><table>
+<thead>
+<tr>
+<th align="left">CRC算法</th>
+<th align="left">多项式公式</th>
+<th align="left">宽度</th>
+<th align="left">多项式</th>
+<th align="left">初始值</th>
+<th align="left">结果异或值</th>
+<th align="left">输入反转</th>
+<th align="left">输出反转</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">CRC-8</td>
+<td align="left">$x^8+x^2+x+1$</td>
+<td align="left">8</td>
+<td align="left">07</td>
+<td align="left">00</td>
+<td align="left">00</td>
+<td align="left">false</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">CRC-8-ITU</td>
+<td align="left">$x^8+x^2+x+1$</td>
+<td align="left">8</td>
+<td align="left">07</td>
+<td align="left">00</td>
+<td align="left">55</td>
+<td align="left">false</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">CRC-8-ROHC</td>
+<td align="left">$x^8+x^2+x+1$</td>
+<td align="left">8</td>
+<td align="left">07</td>
+<td align="left">FF</td>
+<td align="left">00</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">CRC-8-MAXIM</td>
+<td align="left">$x^8+x^5+x^4+1$</td>
+<td align="left">8</td>
+<td align="left">31</td>
+<td align="left">00</td>
+<td align="left">00</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">CRC-16-IBM</td>
+<td align="left">$x^{16}+x^{15}+x^2+1$</td>
+<td align="left">16</td>
+<td align="left">8005</td>
+<td align="left">0000</td>
+<td align="left">0000</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">CRC-16-MAXIM</td>
+<td align="left">$x^{16}+x^{15}+x^2+1$</td>
+<td align="left">16</td>
+<td align="left">8005</td>
+<td align="left">0000</td>
+<td align="left">FFFF</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">CRC-16-USB</td>
+<td align="left">$x^{16}+x^{15}+x^2+1$</td>
+<td align="left">16</td>
+<td align="left">8005</td>
+<td align="left">FFFF</td>
+<td align="left">FFFF</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">CRC-16-MODBUS</td>
+<td align="left">$x^{16}+x^{15}+x^2+1$</td>
+<td align="left">16</td>
+<td align="left">8005</td>
+<td align="left">FFFF</td>
+<td align="left">0000</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">CRC-16-CCITT</td>
+<td align="left">$x^{16}+x^{12}+x^5+1$</td>
+<td align="left">16</td>
+<td align="left">1021</td>
+<td align="left">0000</td>
+<td align="left">0000</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">CRC-16-CCITT-FALSE</td>
+<td align="left">$x^{16}+x^{12}+x^5+1$</td>
+<td align="left">16</td>
+<td align="left">1021</td>
+<td align="left">FFFF</td>
+<td align="left">0000</td>
+<td align="left">false</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">CRC-16-X25</td>
+<td align="left">$x^{16}+x^{12}+x^5+1$</td>
+<td align="left">16</td>
+<td align="left">1021</td>
+<td align="left">FFFF</td>
+<td align="left">FFFF</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">CRC-16-XMODEM</td>
+<td align="left">$x^{16}+x^{12}+x^5+1$</td>
+<td align="left">16</td>
+<td align="left">1021</td>
+<td align="left">0000</td>
+<td align="left">0000</td>
+<td align="left">false</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">CRC-16-XMODEM2</td>
+<td align="left">$x^{16}+x^{15}+x^{10}+x^3$</td>
+<td align="left">16</td>
+<td align="left">8408</td>
+<td align="left">0000</td>
+<td align="left">0000</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">CRC-16-DNP</td>
+<td align="left">$x^{16}+x^{13}+x^{12}+x^{11}+x^{10}+x^8+x^6+x^5+x^2+1$</td>
+<td align="left">16</td>
+<td align="left">3D65</td>
+<td align="left">0000</td>
+<td align="left">FFFF</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">CRC-32</td>
+<td align="left">$x^{32}+x^{26}+x^{23}+x^{22}+x^{16}+x^{12}+x^{11}+x^{10}+x^8+x^7+x^5+x^4+x^2+x+1$</td>
+<td align="left">32</td>
+<td align="left">04C11DB7</td>
+<td align="left">FFFFFFFF</td>
+<td align="left">FFFFFFFF</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">CRC-32-C</td>
+<td align="left">$x^{32}+x^{28}+x^{27}+x^{26}+x^{25}+x^{23}+x^{22}+x^{20}+x^{19}+x^{18}+x^{14}+x^{13}+x^{11}+x^{10}+x^9+x^8+x^6+1$</td>
+<td align="left">32</td>
+<td align="left">1EDC6F41</td>
+<td align="left">FFFFFFFF</td>
+<td align="left">FFFFFFFF</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">CRC-32-KOOPMAN</td>
+<td align="left">$x^{32}+x^{30}+x^{29}+x^{28}+x^{26}+x^{20}+x^{19}+x^{17}+x^{16}+x^{15}+x^{11}+x^{10}+x^7+x^6+x^4+x^2+x+1$</td>
+<td align="left">32</td>
+<td align="left">741B8CD7</td>
+<td align="left">FFFFFFFF</td>
+<td align="left">FFFFFFFF</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">CRC-32-MPEG-2</td>
+<td align="left">$x^{32}+x^{26}+x^{23}+x^{22}+x^{16}+x^{12}+x^{11}+x^{10}+x^8+x^7+x^5+x^4+x^2+x+1$</td>
+<td align="left">32</td>
+<td align="left">04C11DB7</td>
+<td align="left">FFFFFFFF</td>
+<td align="left">00000000</td>
+<td align="left">false</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">CRC-64-ISO</td>
+<td align="left">$x^{64}+x^4+x^3+x+1$</td>
+<td align="left">64</td>
+<td align="left">000000000000001B</td>
+<td align="left">FFFFFFFFFFFFFFFF</td>
+<td align="left">FFFFFFFFFFFFFFFF</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">CRC-64-ECMA</td>
+<td align="left">$x^{64}+x^{62}+x^{57}+x^{55}+x^{54}+x^{53}+x^{52}+x^{47}+x^{46}+x^{45}+x^{40}+x^{39}+x^{38}+x^{37}+x^{35}+x^{33}+x^{32}+x^{31}+x^{29}+x^{27}+x^{24}+x^{23}+x^{22}+x^{21}+x^{19}+x^{17}+x^{13}+x^{12}+x^{10}+x^9+x^7+x^4+x^+1$</td>
+<td align="left">64</td>
+<td align="left">42F0E1EBA9EA3693</td>
+<td align="left">FFFFFFFFFFFFFFFF</td>
+<td align="left">FFFFFFFFFFFFFFFF</td>
+<td align="left">true</td>
+<td align="left">true</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/20/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="叶愚">
+      <meta itemprop="description" content="假如再也见不到你,就祝你早安，午安，晚安!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="叶愚的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/20/%E4%BD%8D%E8%BF%90%E7%AE%97/" class="post-title-link" itemprop="url">位运算</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-08-20 21:35:00 / 修改时间：21:37:50" itemprop="dateCreated datePublished" datetime="2024-08-20T21:35:00+08:00">2024-08-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>337</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h1><h2 id="与"><a href="#与" class="headerlink" title="&amp; 与"></a>&amp; 与</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CA：<span class="number">1100</span> <span class="number">1010</span></span><br><span class="line">A2：<span class="number">1010</span> <span class="number">0010</span></span><br><span class="line">————————————————</span><br><span class="line">    <span class="number">1000</span> <span class="number">0010</span></span><br><span class="line"></span><br><span class="line">规则：两个bit位同时为<span class="number">1</span>，结果=<span class="number">1</span>；bit位不同 = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="或"><a href="#或" class="headerlink" title="| 或"></a>| 或</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CA：<span class="number">1100</span> <span class="number">1010</span></span><br><span class="line">A2：<span class="number">1010</span> <span class="number">0010</span></span><br><span class="line">————————————————</span><br><span class="line">    <span class="number">1110</span> <span class="number">1010</span></span><br><span class="line"></span><br><span class="line">规则：两个bit位同时为<span class="number">0</span>，结果=<span class="number">0</span>；bit位不同 = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="异或"><a href="#异或" class="headerlink" title="^ 异或"></a>^ 异或</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CA：<span class="number">1100</span> <span class="number">1010</span></span><br><span class="line">A2：<span class="number">1010</span> <span class="number">0010</span></span><br><span class="line">————————————————</span><br><span class="line">    <span class="number">0110</span> <span class="number">1000</span></span><br><span class="line"></span><br><span class="line">规则：两个bit位相同，结果=<span class="number">0</span>；bit位不同 = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="左移"><a href="#左移" class="headerlink" title="&lt;&lt; 左移"></a>&lt;&lt; 左移</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CA：<span class="number">1100</span> <span class="number">1010</span></span><br><span class="line">    &lt;&lt;<span class="number">2</span></span><br><span class="line">————————————————</span><br><span class="line">    <span class="number">0010</span> <span class="number">1000</span></span><br><span class="line"></span><br><span class="line">规则：各二进位全部左移若干位，高位丢弃，低位补<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h2 id="右移动"><a href="#右移动" class="headerlink" title="&gt;&gt;右移动"></a>&gt;&gt;右移动</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CA：<span class="number">1100</span> <span class="number">1010</span></span><br><span class="line">    &gt;&gt;<span class="number">2</span></span><br><span class="line">————————————————</span><br><span class="line">    <span class="number">0011</span> <span class="number">0010</span></span><br><span class="line"></span><br><span class="line">规则：二进位全部右移若干位，高位丢弃，低位补<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h2 id="表"><a href="#表" class="headerlink" title="表"></a>表</h2><table>
+<thead>
+<tr>
+<th align="left">符号</th>
+<th align="left">描述</th>
+<th align="center">运算规则</th>
+<th align="center">实例（以四位二进制数为例）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">&amp;</td>
+<td align="left">与</td>
+<td align="center">两个位都为1时，结果才为1。</td>
+<td align="center">0001&amp;0001&#x3D;1,0001&amp;0000&#x3D;0,0000&amp;0000&#x3D;0000</td>
+</tr>
+<tr>
+<td align="left">|</td>
+<td align="left">或</td>
+<td align="center">两个位都为0时，结果才为0。</td>
+<td align="center">0001∣0001&#x3D;0001,0001∣0000&#x3D;0001,0000∣0000&#x3D;0000</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left">异或</td>
+<td align="center">两个位相同为0，相异为1。</td>
+<td align="center">0001∧0001&#x3D;0000,0001∧0000&#x3D;1,0000∧0000&#x3D;0</td>
+</tr>
+<tr>
+<td align="left">~</td>
+<td align="left">取反</td>
+<td align="center">0变1，1变0。</td>
+<td align="center">∼0&#x3D;1,∼1&#x3D;0</td>
+</tr>
+<tr>
+<td align="left">&lt;&lt;</td>
+<td align="left">左移</td>
+<td align="center">各二进位全部左移若干位，高位丢弃，低位补0。</td>
+<td align="center">0001&lt;&lt;k&#x3D;0100，k&#x3D;2，k kk是左移的位数，这里k &#x3D; 2 k&#x3D;2k&#x3D;2</td>
+</tr>
+<tr>
+<td align="left">&gt;&gt;</td>
+<td align="left">右移</td>
+<td align="center">各二进位全部右移若干位，对无符号数，高位补0，有符号数，右移补1。</td>
+<td align="center">0100&gt;&gt;k&#x3D;0001，k&#x3D;2，k kk是右移的位数，这里k &#x3D; 2 k&#x3D;2k&#x3D;2</td>
+</tr>
+</tbody></table>
+<p>参考：unique-pure 著作 <a target="_blank" rel="noopener" href="http://t.csdnimg.cn/Co26w">http://t.csdnimg.cn/Co26w</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -749,7 +1182,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-29 22:51:14" itemprop="dateModified" datetime="2024-02-29T22:51:14+08:00">2024-02-29</time>
+                <time title="修改时间：2024-02-29 23:16:21" itemprop="dateModified" datetime="2024-02-29T23:16:21+08:00">2024-02-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -795,6 +1228,108 @@
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/19/%E3%80%8AC#%E3%80%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="叶愚">
+      <meta itemprop="description" content="假如再也见不到你,就祝你早安，午安，晚安!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="叶愚的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/19/%E3%80%8AC#%E3%80%8B/" class="post-title-link" itemprop="url">《C#》</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-08-19 15:00:00" itemprop="dateCreated datePublished" datetime="2023-08-19T15:00:00+08:00">2023-08-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-12 22:27:08" itemprop="dateModified" datetime="2024-03-12T22:27:08+08:00">2024-03-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming-Language/" itemprop="url" rel="index"><span itemprop="name">Programming Language</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>660</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<p>C# 中的类型转换可以分为两种：隐式类型转换和显式类型转换（也称为强制类型转换）。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">byte</span> b = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">int</span> i = b; <span class="comment">// 隐式转换，不需要显式转换</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> i = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">byte</span> b = (<span class="built_in">byte</span>)i; <span class="comment">// 显式转换，需要使用强制类型转换符号</span></span><br></pre></td></tr></table></figure>
+
+<p>C# 封装<br>封装 被定义为”把一个或多个项目封闭在一个物理的或者逻辑的包中”。在面向对象程序设计方法论中，封装是为了防止对实现细节的访问。</p>
+<p>抽象和封装是面向对象程序设计的相关特性。抽象允许相关信息可视化，封装则使开发者实现所需级别的抽象。</p>
+<p>C# 封装根据具体的需要，设置使用者的访问权限，并通过 访问修饰符 来实现。</p>
+<p>一个 访问修饰符 定义了一个类成员的范围和可见性。C# 支持的访问修饰符如下所示：</p>
+<p>public：所有对象都可以访问；<br>private：对象本身在对象内部可以访问；<br>protected：只有该类对象及其子类对象可以访问<br>internal：同一个程序集的对象可以访问；<br>protected internal：访问限于当前程序集或派生自包含类的类型。</p>
+<p>C# 方法<br>一个方法是把一些相关的语句组织在一起，用来执行一个任务的语句块。每一个 C# 程序至少有一个带有 Main 方法的类。</p>
+<p>要使用一个方法，您需要：</p>
+<p>定义方法<br>调用方法<br>C# 中定义方法<br>当定义一个方法时，从根本上说是在声明它的结构的元素。在 C# 中，定义方法的语法如下：</p>
+<p><Access Specifier> <Return Type> <Method Name>(Parameter List)<br>{<br>   Method Body<br>}<br>下面是方法的各个元素：</p>
+<p>Access Specifier：访问修饰符，这个决定了变量或方法对于另一个类的可见性。<br>Return type：返回类型，一个方法可以返回一个值。返回类型是方法返回的值的数据类型。如果方法不返回任何值，则返回类型为 void。<br>Method name：方法名称，是一个唯一的标识符，且是大小写敏感的。它不能与类中声明的其他标识符相同。<br>Parameter list：参数列表，使用圆括号括起来，该参数是用来传递和接收方法的数据。参数列表是指方法的参数类型、顺序和数量。参数是可选的，也就是说，一个方法可能不包含参数。<br>Method body：方法主体，包含了完成任务所需的指令集。</p>
+
       
     </div>
 
@@ -907,12 +1442,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">19k</span>
+    <span title="站点总字数">21k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:08</span>
+    <span title="站点阅读时长">1:15</span>
 </div>
 
 
